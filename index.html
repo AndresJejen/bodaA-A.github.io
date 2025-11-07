@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wedding Invitation</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet">
+  <!-- Replace YOUR_ACTUAL_API_KEY with the key you got from Google Cloud Console -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAdLQtNRlV30CoeSXoxQdh4kV3K23QIz0M"></script>
+</head>
+<body>
+
+  <!-- HERO SECTION -->
+
+  <header class="hero">
+    <div class="overlay"></div>
+    <div class="hero-content">
+      <h2 class="pretitle">¡ Nos casamos !</h2>
+      <h1 class="names">Andrés & Ale</h1>
+      <blockquote class="verse">
+        "Miren, el hogar de Dios ahora está entre su pueblo, el vivirá con ellos, y ellos serán su pueblo.
+        Dios mismo estará con ellos."  
+        <span>— Apocalipsis 21:3</span>
+      </blockquote>
+      <h2 class="subtitle">Estás invitado</h2>
+    </div>
+    <div class="hero-footer">
+      <a href="#rsvp" class="btn">Confirmar Asistencia</a>
+    </div>
+  </header>
+
+  <!-- INVITATION SECTION -->
+
+  <main>
+    <section class="invitation" id="invitation">
+    <div class="card">
+        <h2 id="guestName">Hola, [INVITADO NOMBRE]</h2>
+
+        <p class="intro">
+        Un día Dios nos presentó y desde entonces la vida no volvió a ser la igual. Te invitamos a celebrar el día más especial de nuestras vidas.
+        </p>
+
+        <div class="divider"></div>
+
+        <div class="date-details">
+          <h3 class="ceremony-title">Ceremonia</h3>
+          <div class="date-block">
+            <span class="day-name">Viernes</span>
+            <span class="day-number">20</span>
+            <span class="month">Febrero</span>
+            <span class="year">2026</span>
+          </div>
+          <div class="venue-info">
+            <p class="time">11:00 AM</p>
+            <p class="venue-name">Casa Duque, Autopista Medellín Km 16 El Rosal, Cundinamarca</p>
+          </div>
+        </div>
+    </div>
+    </section>
+
+  <!-- ETIQUETA y PALETA DE COLORES -->
+  <section class="palette" id="palette">
+    <div class="palette-card">
+      <div class="dress-code">
+        <div class="dress-icons">
+          <span class="dress-icon">
+            <img src="images/male_dress.svg" alt="Formal male attire" width="45" height="45">
+          </span>
+          <span class="dress-icon">
+            <img src="images/female_dress.svg" alt="Formal female attire" width="45" height="45">
+          </span>
+        </div>
+        <h2>Dress Code</h2>
+        <p class="formal">Formal</p>
+      </div>
+      <div class="divider"></div>
+      <div class="reserved-colors">
+        <h3>Colores reservados</h3>
+        <p class="colors-list">Gris, Blanco, Lila y Durazno</p>
+        <div class="color-circles">
+          <span class="color-circle grey" title="Gris"></span>
+          <span class="color-circle white" title="Blanco"></span>
+          <span class="color-circle lilac" title="Lila"></span>
+          <span class="color-circle peach" title="Durazno"></span>
+        </div>
+      </div>
+      <div class="divider"></div>
+      <div class="gift-registry">
+        <div class="gift-icon">✉️</div>
+        <h3>Lluvia de sobres</h3>
+        <p>Lo más importante es tu presencia, pero si deseas hacernos un regalo aquí tienes nuestros datos</p>
+        <p>Nequi: 313-590-68-31</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ITINERARIO -->
+  <section class="itinerary" id="itinerary">
+    <div class="itinerary-card">
+      <h2>El gran día</h2>
+      <div class="timeline">
+
+        <div class="timeline-item left">
+          <div class="timeline-content">
+            <h3>Llegada</h3>
+            <p class="time">11:00 AM</p>
+          </div>
+          <div class="timeline-icon" aria-hidden="true">
+            <!-- couple icon -->
+            <svg width="34" height="34" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="8" cy="8" r="2" stroke="#d4a373" stroke-width="1.5" fill="none"/>
+              <path d="M5 14c1-2 4-2 6 0" stroke="#d4a373" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+              <circle cx="16" cy="8" r="2" stroke="#d4a373" stroke-width="1.5" fill="none"/>
+              <path d="M13 14c1-2 4-2 6 0" stroke="#d4a373" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+            </svg>
+          </div>
+        </div>
+
+        <div class="timeline-item right">
+          <div class="timeline-content">
+            <h3>Ceremonia</h3>
+            <p class="time">12:00 PM</p>
+          </div>
+          <div class="timeline-icon" aria-hidden="true">
+            <!-- simple church icon -->
+            <svg width="34" height="34" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2L7 6v14h10V6l-5-4z" stroke="#d4a373" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              <path d="M12 7v5" stroke="#d4a373" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M10 9h4" stroke="#d4a373" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
+
+        <div class="timeline-item left">
+          <div class="timeline-content">
+            <h3>Recepción</h3>
+            <p class="time">2:00 PM</p>
+          </div>
+          <div class="timeline-icon" aria-hidden="true">
+            <!-- rings icon -->
+            <svg width="34" height="34" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="9" cy="12" r="4" stroke="#d4a373" stroke-width="1.5" fill="none"/>
+              <circle cx="14" cy="12" r="4" stroke="#d4a373" stroke-width="1.5" fill="none"/>
+            </svg>
+          </div>
+        </div>
+
+        <div class="timeline-item right">
+          <div class="timeline-content">
+            <h3>Comida y brindis</h3>
+            <p class="time">3:00 PM</p>
+          </div>
+          <div class="timeline-icon" aria-hidden="true">
+            <!-- plate icon -->
+            <svg width="34" height="34" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="12" r="6" stroke="#d4a373" stroke-width="1.5" fill="none"/>
+              <path d="M17 8v8" stroke="#d4a373" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M7 8v8" stroke="#d4a373" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+        </div>
+
+        <div class="timeline-item left">
+          <div class="timeline-content">
+            <h3>Cierre</h3>
+            <p class="time">4:30 PM</p>
+          </div>
+          <div class="timeline-icon" aria-hidden="true">
+            <!-- plate icon -->
+            <svg width="34" height="34" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="12" r="6" stroke="#d4a373" stroke-width="1.5" fill="none"/>
+              <path d="M17 8v8" stroke="#d4a373" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M7 8v8" stroke="#d4a373" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAPA -->
+  <section class="map-section" id="mapa">
+    <div class="map-card">
+      <h2>Cómo llegar — Casa Duque</h2>
+      <!-- Placeholder iframe: replace src with your Google Maps embed link or other map provider -->
+      <div class="map-wrapper">
+        <div id="map" class="map-iframe"></div>
+      </div>
+      <p class="map-note">Autopista Medellín Km 16, El Rosal — Cundinamarca, Colombia</p>
+      <div class="map-actions">
+        <button id="getDirections" class="btn map-btn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 22L3 9l9-7 9 7-9 13z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M12 22L12 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Cómo llegar
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- RSVP SECTION -->
+  <section class="rsvp" id="rsvp">
+    <div class="form-card">
+      <h2>RSVP</h2>
+      <table class="rsvp-table" aria-label="RSVP summary">
+        <tr>
+          <th>Nombre</th>
+          <td id="guestNameCell" class="muted">—</td>
+        </tr>
+
+        <tr>
+          <th>Número de invitados</th>
+          <td id="seatsCell" class="muted">1</td>
+        </tr>
+
+        <tr>
+          <th>Asistirás?</th>
+          <td id="attendCell" class="muted">Sí</td>
+        </tr>
+
+        <tr class="rsvp-actions">
+          <td colspan="2">
+            <button id="clearRsvp" class="btn secondary">Cancelar asistencia</button>
+          </td>
+        </tr>
+      </table>
+      <p id="responseMsg"></p>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- FOOTER -->
+
+<footer>
+    <div class="footer-content">
+      <p class="footer-love">With ❤️🥨, Andres & Ale</p>
+      <div class="footer-contact">
+        <p class="contact-title">¿Necesitas ayuda?</p>
+        <div class="contact-info">
+          <a href="mailto:soporte@bodaandresyale.com" class="contact-link">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            soporte@bodaandresyale.com
+          </a>
+          <a href="tel:+573001234567" class="contact-link">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.362 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0122 16.92z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            +57 300 123 4567
+          </a>
+        </div>
+      </div>
+    </div>
+</footer>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
