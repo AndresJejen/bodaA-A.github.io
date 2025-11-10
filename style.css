@@ -37,7 +37,30 @@ html, body {
   height: 100%;
   width: 100%;
   font-family: var(--font-primary);
-  color: var(--color-text);
+  color: v/* ITINERARY SECTION */
+.itinerary {
+  min-height: 100%;
+  padding: 4rem 1rem;
+  background-image: url('images/bg2.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.itinerary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.2);
+  pointer-events: none;
+}xt);
   background: var(--color-background);
   scroll-behavior: smooth;
 }
@@ -840,7 +863,7 @@ input[type="number"] {
   position: relative;
   max-width: 600px;
   margin: 0 auto;
-  padding: 1rem 0;
+  padding: 2rem 0;
 }
 
 .timeline::before {
@@ -849,9 +872,9 @@ input[type="number"] {
   left: 50%;
   transform: translateX(-50%);
   width: 2px;
-  height: 100%;
+  height: calc(100% - 60px);
   background: var(--color-primary-light);
-  top: 0;
+  top: 30px;
 }
 
 .timeline-item {
@@ -897,29 +920,51 @@ input[type="number"] {
 }
 
 .timeline-content {
-  background: var(--color-white);
+  background: rgba(255, 255, 255, 0.9);
   padding: 1rem 1.5rem;
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-sm);
   width: 45%;
   position: relative;
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .timeline-content h3 {
   color: var(--color-primary-dark);
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   margin-bottom: 0.3rem;
+  font-weight: 600;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.1);
 }
 
 .timeline-content p {
   color: var(--color-text);
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   margin: 0;
+  font-weight: 500;
 }
 
 @media (max-width: 768px) {
+  .itinerary {
+    padding: 3rem 0.5rem;
+    min-height: auto;
+  }
+
+  .itinerary-card {
+    padding: 2rem 1rem;
+    width: 95%;
+    background: rgba(255, 255, 255, 0.92);
+  }
+
+  .timeline {
+    padding: 1rem 0;
+  }
+
   .timeline::before {
     left: 30px;
+    height: calc(100% - 40px);
+    top: 20px;
   }
   
   .timeline-item,
@@ -927,13 +972,15 @@ input[type="number"] {
   .timeline-item:nth-child(odd) {
     justify-content: flex-start;
     margin-left: 0;
+    margin-bottom: 2rem;
+    min-height: 70px;
   }
   
   .timeline-icon {
     left: 30px;
     transform: translateX(0);
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
   }
   
   .timeline-icon:hover {
@@ -941,25 +988,33 @@ input[type="number"] {
   }
   
   .timeline-icon img {
-    width: 25px;
-    height: 25px;
+    width: 22px;
+    height: 22px;
   }
   
   .timeline-content,
   .timeline-item:nth-child(odd) .timeline-content,
   .timeline-item:nth-child(even) .timeline-content {
     width: auto;
-    margin-left: 80px;
-    margin-right: 20px;
+    margin-left: 65px;
+    margin-right: 10px;
     padding: 1rem;
     text-align: left;
+    background: rgba(255, 255, 255, 0.95);
   }
   
-  .timeline-item:nth-child(odd) .timeline-content {
-    padding-right: 1rem;
+  .timeline-content h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.4rem;
   }
   
-  .timeline-item:nth-child(even) .timeline-content {
-    padding-left: 1rem;
+  .timeline-content p {
+    font-size: 1.1rem;
+  }
+
+  .itinerary-card h2 {
+    font-size: 2.8rem;
+    margin-bottom: 2rem;
+    letter-spacing: 1px;
   }
 }
