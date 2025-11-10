@@ -22,7 +22,51 @@ const VENUE_LOCATION = {
 let map, userMarker, venueMarker, directionsService, directionsRenderer;
 
 function initMap() {
-  // Initialize map services
+  // Initialize and add the map
+function initMap() {
+  // The location of Casa Duque
+  const casaDuque = { lat: 4.82944, lng: -74.23469 };
+  
+  // The map, centered at Casa Duque
+  const map = new google.maps.Map(document.getElementById("map"), {
+    zoom: 15,
+    center: casaDuque,
+    mapTypeId: "roadmap",
+    styles: [
+      {
+        featureType: "poi",
+        elementType: "labels",
+        stylers: [{ visibility: "off" }],
+      },
+    ],
+  });
+
+  // The marker, positioned at Casa Duque
+  const marker = new google.maps.Marker({
+    position: casaDuque,
+    map: map,
+    title: "Casa Duque",
+    animation: google.maps.Animation.DROP,
+  });
+
+  // Add an info window
+  const infoWindow = new google.maps.InfoWindow({
+    content: `
+      <div style="padding: 10px; max-width: 200px;">
+        <h3 style="margin: 0 0 10px; color: #d4a373;">Casa Duque</h3>
+        <p style="margin: 0; color: #666;">
+          Autopista Medellín Km 16<br>
+          El Rosal, Cundinamarca
+        </p>
+      </div>
+    `,
+  });
+
+  // Open info window when marker is clicked
+  marker.addListener("click", () => {
+    infoWindow.open(map, marker);
+  });
+}
   directionsService = new google.maps.DirectionsService();
   directionsRenderer = new google.maps.DirectionsRenderer({
     suppressMarkers: true,
@@ -66,114 +110,6 @@ function initMap() {
   });
 
   directionsRenderer.setMap(map);
-
-  // Set up click handler for directions button
-  const directionsBtn = document.getElementById("getDirections");
-  if (directionsBtn) {
-    directionsBtn.addEventListener("click", getUserLocationAndRoute);
-  }
-}
-
-function getUserLocationAndRoute() {
-  const directionsBtn = document.getElementById("getDirections");
-  if (directionsBtn) directionsBtn.disabled = true;
-
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(
-      position => {
-        const userLocation = {
-          lat: position.coords.latitude,
-          lng: position.coords.longitude
-        };
-
-        // Update or create user marker
-        if (userMarker) userMarker.setMap(null);
-        userMarker = new google.maps.Marker({
-          position: userLocation,
-          map: map,
-          title: "Tu ubicación",
-          icon: {
-            path: google.maps.SymbolPath.CIRCLE,
-            scale: 8,
-            fillColor: "#4285F4",
-            fillOpacity: 1,
-            strokeWeight: 2,
-            strokeColor: "#ffffff"
-          }
-        });
-
-        // Calculate and display route
-        calculateAndDisplayRoute(userLocation);
-        if (directionsBtn) directionsBtn.disabled = false;
-      },
-      error => {
-        console.error("Error getting location:", error);
-        if (directionsBtn) {
-          directionsBtn.disabled = false;
-          directionsBtn.textContent = "Error al obtener ubicación";
-        }
-        // Fallback: open in Google Maps
-        window.open(
-          `https://www.google.com/maps/dir/?api=1&destination=${VENUE_LOCATION.lat},${VENUE_LOCATION.lng}`,
-          '_blank'
-        );
-      },
-      {
-        enableHighAccuracy: true,
-        timeout: 5000,
-        maximumAge: 0
-      }
-    );
-  } else {
-    if (directionsBtn) directionsBtn.disabled = false;
-    // Fallback: open in Google Maps
-    window.open(
-      `https://www.google.com/maps/dir/?api=1&destination=${VENUE_LOCATION.lat},${VENUE_LOCATION.lng}`,
-      '_blank'
-    );
-  }
-}
-
-function calculateAndDisplayRoute(origin) {
-  directionsService.route(
-    {
-      origin: origin,
-      destination: VENUE_LOCATION,
-      travelMode: google.maps.TravelMode.DRIVING
-    },
-    (response, status) => {
-      if (status === "OK") {
-        directionsRenderer.setDirections(response);
-        
-        // Add markers (they're suppressed by default)
-        if (userMarker) userMarker.setMap(map);
-        if (venueMarker) venueMarker.setMap(map);
-        
-        // Update button text with duration
-        const route = response.routes[0];
-        if (route && route.legs[0]) {
-          const duration = route.legs[0].duration.text;
-          const distance = route.legs[0].distance.text;
-          const directionsBtn = document.getElementById("getDirections");
-          if (directionsBtn) {
-            directionsBtn.innerHTML = `
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 22L3 9l9-7 9 7-9 13z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M12 22L12 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-              ${distance} (${duration})
-            `;
-          }
-        }
-      } else {
-        console.error("Directions request failed:", status);
-        const directionsBtn = document.getElementById("getDirections");
-        if (directionsBtn) {
-          directionsBtn.textContent = "Error al calcular ruta";
-        }
-      }
-    }
-  );
 }
 
 // Initialize map when Google Maps API is ready

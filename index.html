@@ -7,8 +7,6 @@
   <title>Wedding Invitation</title>
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet">
-  <!-- Replace YOUR_ACTUAL_API_KEY with the key you got from Google Cloud Console -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAdLQtNRlV30CoeSXoxQdh4kV3K23QIz0M"></script>
 </head>
 <body>
 
@@ -99,7 +97,7 @@
   <!-- ITINERARIO -->
   <section class="itinerary" id="itinerary">
     <div class="itinerary-card">
-      <h2>El gran día</h2>
+      <h2 class="itinerary-title">El gran día</h2>
       <div class="timeline">
 
         <div class="timeline-item left">
@@ -108,13 +106,7 @@
             <p class="time">11:00 AM</p>
           </div>
           <div class="timeline-icon" aria-hidden="true">
-            <!-- couple icon -->
-            <svg width="34" height="34" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="8" cy="8" r="2" stroke="#d4a373" stroke-width="1.5" fill="none"/>
-              <path d="M5 14c1-2 4-2 6 0" stroke="#d4a373" stroke-width="1.5" stroke-linecap="round" fill="none"/>
-              <circle cx="16" cy="8" r="2" stroke="#d4a373" stroke-width="1.5" fill="none"/>
-              <path d="M13 14c1-2 4-2 6 0" stroke="#d4a373" stroke-width="1.5" stroke-linecap="round" fill="none"/>
-            </svg>
+            <img src="images/arrive.svg" alt="Llegada" class="timeline-svg" />
           </div>
         </div>
 
@@ -124,12 +116,7 @@
             <p class="time">12:00 PM</p>
           </div>
           <div class="timeline-icon" aria-hidden="true">
-            <!-- simple church icon -->
-            <svg width="34" height="34" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 2L7 6v14h10V6l-5-4z" stroke="#d4a373" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-              <path d="M12 7v5" stroke="#d4a373" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M10 9h4" stroke="#d4a373" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
+            <img src="images/church.svg" alt="Ceremonia" class="timeline-svg" />
           </div>
         </div>
 
@@ -139,43 +126,40 @@
             <p class="time">2:00 PM</p>
           </div>
           <div class="timeline-icon" aria-hidden="true">
-            <!-- rings icon -->
-            <svg width="34" height="34" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="9" cy="12" r="4" stroke="#d4a373" stroke-width="1.5" fill="none"/>
-              <circle cx="14" cy="12" r="4" stroke="#d4a373" stroke-width="1.5" fill="none"/>
-            </svg>
+            <img src="images/cheers.svg" alt="Recepción" class="timeline-svg" />
           </div>
         </div>
 
         <div class="timeline-item right">
           <div class="timeline-content">
-            <h3>Comida y brindis</h3>
-            <p class="time">3:00 PM</p>
+            <h3>Primer Baile</h3>
+            <p class="time">2:10 PM</p>
           </div>
           <div class="timeline-icon" aria-hidden="true">
-            <!-- plate icon -->
-            <svg width="34" height="34" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="12" cy="12" r="6" stroke="#d4a373" stroke-width="1.5" fill="none"/>
-              <path d="M17 8v8" stroke="#d4a373" stroke-width="1.5" stroke-linecap="round"/>
-              <path d="M7 8v8" stroke="#d4a373" stroke-width="1.5" stroke-linecap="round"/>
-            </svg>
+            <img src="images/dancing.svg" alt="Primer Baile" class="timeline-svg" />
           </div>
         </div>
 
         <div class="timeline-item left">
           <div class="timeline-content">
-            <h3>Cierre</h3>
-            <p class="time">4:30 PM</p>
+            <h3>Comida y brindis</h3>
+            <p class="time">2:30 PM</p>
           </div>
           <div class="timeline-icon" aria-hidden="true">
-            <!-- plate icon -->
-            <svg width="34" height="34" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="12" cy="12" r="6" stroke="#d4a373" stroke-width="1.5" fill="none"/>
-              <path d="M17 8v8" stroke="#d4a373" stroke-width="1.5" stroke-linecap="round"/>
-              <path d="M7 8v8" stroke="#d4a373" stroke-width="1.5" stroke-linecap="round"/>
-            </svg>
+            <img src="images/dinner.svg" alt="Comida y brindis" class="timeline-svg" />
           </div>
         </div>
+
+        <div class="timeline-item right">
+          <div class="timeline-content">
+            <h3>Cierre</h3>
+            <p class="time">4:00 PM</p>
+          </div>
+          <div class="timeline-icon" aria-hidden="true">
+            <img src="images/just-married.svg" alt="Cierre" class="timeline-svg" />
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -183,20 +167,29 @@
   <!-- MAPA -->
   <section class="map-section" id="mapa">
     <div class="map-card">
-      <h2>Cómo llegar — Casa Duque</h2>
-      <!-- Placeholder iframe: replace src with your Google Maps embed link or other map provider -->
-      <div class="map-wrapper">
-        <div id="map" class="map-iframe"></div>
-      </div>
-      <p class="map-note">Autopista Medellín Km 16, El Rosal — Cundinamarca, Colombia</p>
-      <div class="map-actions">
-        <button id="getDirections" class="btn map-btn">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 22L3 9l9-7 9 7-9 13z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M12 22L12 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          Cómo llegar
-        </button>
+      <h2>Ubicación — Casa Duque</h2>
+      <div class="location-info">
+        <div class="map-wrapper">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3975.9876543210123!2d-74.23469!3d4.82900!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNMKwNDknNDQuNCJOIDc0wrAxNCcwNC45Ilc!5e0!3m2!1ses!2sco!4v1699456789012!5m2!1ses!2sco"
+            width="100%"
+            height="450"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            class="map-iframe">
+          </iframe>
+        </div>
+        <p class="coordinates">4°49'44.4"N 74°14'04.9"W</p>
+        <p class="map-note">Autopista Medellín Km 16, El Rosal — Cundinamarca, Colombia</p>
+        <div class="map-actions">
+          <a href="https://www.google.com/maps/search/?api=1&query=4.82900,-74.23469" 
+             target="_blank" 
+             class="btn map-btn">
+            Ver en Google Maps
+          </a>
+        </div>
       </div>
     </div>
   </section>
