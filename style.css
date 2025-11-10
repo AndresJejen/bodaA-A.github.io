@@ -1,30 +1,3 @@
-/* ITINERARY CARD TITLE */
-.itinerary-title {
-  font-family: 'Allura', cursive;
-  font-size: 3rem;
-  color: #d4a373;
-  margin-bottom: 2rem;
-  margin-top: 0;
-  text-align: center;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  background: rgba(255,255,255,0.92);
-  border-radius: 12px 12px 0 0;
-  padding: 1.2rem 1.2rem 0.7rem 1.2rem;
-  display: block;
-  box-shadow: 0 4px 18px rgba(212,163,115,0.08);
-  position: sticky;
-  top: 0;
-  z-index: 10;
-}
-@media (max-width: 600px) {
-  .itinerary-title {
-    font-size: 2.1rem;
-    padding: 0.8rem 0.5rem 0.5rem 0.5rem;
-    margin-bottom: 1.2rem;
-    margin-top: 0;
-    border-radius: 12px 12px 0 0;
-  }
-}
 :root {
   /* Colors */
   --color-primary: #d4a373;
@@ -729,319 +702,6 @@ input[type="number"] {
 .color-3 { background:#b37e4e; }
 .color-4 { background:#fcead0; }
 
-/* ITINERARIO */
-.itinerary {
-  padding: 0 1rem;
-  background-image: url('images/itinerary.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  box-sizing: border-box;
-  gap: 6vh;
-}
-
-.itinerary-card {
-  background: rgba(255,255,255,0.92);
-  padding: 0;
-  border-radius: 14px;
-  max-width: 600px;
-  width: 50vw;
-  height: 90vh;
-  overflow-y: auto;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
-  backdrop-filter: blur(2px);
-  margin: 0 2rem;
-  margin-top: 1vh;
-  display: flex;
-  flex-direction: column;
-}
-
-/* overlay for better contrast over background image */
-.itinerary::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(rgba(255,255,255,0.05), rgba(0,0,0,0.12));
-  pointer-events: none;
-}
-.itinerary-card h2 { 
-  font-family: 'Allura', cursive; 
-  color: #d4a373; 
-  margin-bottom: 2.5rem;
-  font-size: 3.5rem;
-  text-align: center;
-  position: relative;
-  padding-bottom: 1rem;
-}
-
-.itinerary-card h2:after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60px;
-  height: 2px;
-  background-color: #d4a373;
-}
-.timeline {
-  position: relative;
-  padding: 0 2rem 2rem 2rem;
-  margin-top: 0;
-  flex: 1;
-}
-.timeline:before {
-  content: '';
-  position: absolute;
-  left: 50%;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background: #f0e6de;
-  transform: translateX(-50%);
-}
-
-/* Grid-based timeline: three columns (content - icon - content). Easier to responsive stack. */
-.timeline {
-  position: relative;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.timeline::before {
-  content: '';
-  position: absolute;
-  left: 50%;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background: var(--color-primary-light);
-  transform: translateX(-50%);
-}
-
-.timeline-item {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  margin: 2rem 0;
-  width: 100%;
-}
-
-.timeline-item.left {
-  flex-direction: row;
-}
-
-.timeline-item.right {
-  flex-direction: row-reverse;
-}
-
-.timeline-content {
-  flex: 0 1 10vw;
-  width: 10vw;
-  min-width: 120px;
-  max-width: 200px;
-  position: relative;
-  background: white;
-  padding: 1rem;
-  border-radius: 10px;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-}
-
-.timeline-item.left .timeline-content {
-  margin-right: 1rem;
-  text-align: right;
-}
-
-.timeline-item.right .timeline-content {
-  margin-left: 1rem;
-  text-align: left;
-}
-
-.timeline-icon {
-  width: 60px;
-  height: 60px;
-  background: white;
-  border: 3px solid var(--color-primary);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-}
-
-.timeline-content h3 {
-  color: var(--color-secondary);
-  margin: 0;
-  margin-bottom: 0.5rem;
-  font-size: 1.2rem;
-  line-height: 1;
-}.timeline-svg {
-  width: 34px;
-  height: 34px;
-  filter: brightness(0) saturate(100%) invert(67%) sepia(19%) saturate(682%) hue-rotate(346deg) brightness(88%) contrast(89%);
-  transition: transform 0.3s ease;
-}
-
-.timeline-icon:hover .timeline-svg {
-  transform: scale(1.1);
-}
-
-.timeline-item .time { 
-  font-weight: 600; 
-  color: #b37e4e; 
-  margin-top: 0.2rem; 
-}
-
-/* Responsive: on small screens stack content; icon left, content full width */
-@media (max-width: 880px) {
-  .timeline::before {
-    left: 30px;
-  }
-
-  .timeline-item,
-  .timeline-item.left,
-  .timeline-item.right {
-    flex-direction: row;
-    justify-content: flex-start;
-    margin: 1.5rem 0;
-  }
-
-  .timeline-icon {
-    width: 50px;
-    height: 50px;
-    margin: 0;
-    margin-right: 1rem;
-  }
-
-  .timeline-content {
-    max-width: calc(100% - 80px);
-  }
-
-  .timeline-item.left .timeline-content {
-    margin-right: 1rem;
-  }
-  .timeline-item.right .timeline-content {
-    margin-left: 1rem;
-  }
-/* Center all children of itinerary-card for all screens */
-.itinerary-card > * {
-  margin-left: auto !important;
-  margin-right: auto !important;
-  text-align: center !important;
-}
-
-@media (max-width: 1024px) {
-  .timeline-content,
-  .timeline-item.left .timeline-content,
-  .timeline-item.right .timeline-content {
-    text-align: center !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-  }
-}
-@media (max-width: 768px) {
-  .timeline-content,
-  .timeline-item.left .timeline-content,
-  .timeline-item.right .timeline-content {
-    text-align: center !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-  }
-}
-@media (max-width: 880px) {
-  .timeline::before {
-    left: 30px;
-  }
-  .timeline-item,
-  .timeline-item.left,
-  .timeline-item.right {
-    flex-direction: row;
-    justify-content: flex-start;
-    margin: 1.5rem 0;
-  }
-  .timeline-icon {
-    width: 50px;
-    height: 50px;
-    margin: 0;
-    margin-right: 1rem;
-  }
-  .timeline-content {
-    max-width: calc(100% - 80px);
-  }
-  .timeline-item.left .timeline-content,
-  .timeline-item.right .timeline-content {
-    margin: 0;
-    text-align: left;
-  }
-  .timeline-svg {
-    width: 28px;
-    height: 28px;
-  }
-}
-
-@media (max-width: 600px) {
-  .itinerary-card {
-    height: 100vh;
-    width: 100vw;
-    margin: 0;
-    border-radius: 0;
-    display: flex;
-    flex-direction: column;
-  }
-  .itinerary-card h2 {
-    font-size: 2.2rem;
-    word-break: normal;
-    white-space: normal;
-    padding-bottom: 0.5rem;
-    margin-top: 1.2rem;
-    color: #d4a373;
-    background: rgba(255,255,255,0.85);
-    z-index: 2;
-    text-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    display: block;
-    padding-top: 1rem;
-  }
-  .timeline {
-    max-width: 100vw;
-  }
-  .timeline::before {
-    display: none;
-  }
-  .timeline-item,
-  .timeline-item.left,
-  .timeline-item.right {
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: 1.5rem 0;
-  }
-  .timeline-content {
-    max-width: 100vw;
-    width: 100%;
-    margin: 0 0 0.5rem 0 !important;
-    text-align: center !important;
-    order: 2;
-  }
-  .timeline-icon {
-    margin: 0 0 0.5rem 0;
-    order: 1;
-  }
-  .timeline-item.left .timeline-content,
-  .timeline-item.right .timeline-content {
-    margin: 0 !important;
-    text-align: center !important;
-  }
-}
-}
-
 /* MAP */
 .map-section { 
   padding: 3rem 1rem; 
@@ -1141,83 +801,165 @@ input[type="number"] {
   margin-bottom: 1rem;
 }
 
-@media (max-width: 1024px) {
-  .itinerary {
-    padding: 0 0.5rem;
-    gap: 4vh;
-  }
-  .itinerary-card {
-    width: 80vw;
-    max-width: 95vw;
-    padding: 2.5rem 1.2rem;
-    max-height: 95vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    margin: 0;
-    margin-top: 4vh;
-  }
-  .itinerary-card > * {
-    width: 100%;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-  }
+/* ITINERARY SECTION */
+.itinerary {
+  min-height: 100vh;
+  padding: 2rem 1rem;
+  background-image: url('images/itinerary.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-y: auto;
+}
+
+.itinerary-card {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  width: 90%;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 3rem 2rem;
+  border-radius: 14px;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.08);
+  backdrop-filter: blur(3px);
+  margin: 3rem 0;
+}
+
+.itinerary-card h2 {
+  text-align: center;
+  font-family: 'Allura', cursive;
+  color: var(--color-primary-dark);
+  font-size: 2.8rem;
+  margin-bottom: 2rem;
+}
+
+.timeline {
+  position: relative;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 1rem 0;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 100%;
+  background: var(--color-primary-light);
+  top: 0;
+}
+
+.timeline-item {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 2rem;
+  position: relative;
+  min-height: 80px;
+}
+
+.timeline-item:nth-child(odd) .timeline-content {
+  margin-right: 50%;
+  padding-right: 3rem;
+  text-align: right;
+}
+
+.timeline-item:nth-child(even) .timeline-content {
+  margin-left: 50%;
+  padding-left: 3rem;
+  text-align: left;
+}
+
+.timeline-icon {
+  width: 60px;
+  height: 60px;
+  background: var(--color-white);
+  border: 2px solid var(--color-primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.3s ease;
+}
+
+.timeline-icon:hover {
+  transform: translateX(-50%) scale(1.1);
+}
+
+.timeline-content {
+  background: var(--color-white);
+  padding: 1rem 1.5rem;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  width: 45%;
+  position: relative;
+}
+
+.timeline-content h3 {
+  color: var(--color-primary-dark);
+  font-size: 1.2rem;
+  margin-bottom: 0.3rem;
+}
+
+.timeline-content p {
+  color: var(--color-text);
+  font-size: 1.1rem;
+  margin: 0;
 }
 
 @media (max-width: 768px) {
-  .colors { gap:0.6rem; }
-  .color { width:90px; height:60px; }
-  .itinerary {
-    padding: 0 0.2rem;
-    gap: 2vh;
+  .timeline::before {
+    left: 30px;
   }
-  .itinerary-card {
-    width: 95vw;
-    max-width: 99vw;
-    padding: 1.5rem 0.5rem;
-    max-height: 99vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    margin: 0;
-    margin-top: 2vh;
+  
+  .timeline-item,
+  .timeline-item:nth-child(even),
+  .timeline-item:nth-child(odd) {
+    justify-content: flex-start;
+    margin-left: 0;
   }
-  .itinerary-card > * {
-    width: 100%;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
+  
+  .timeline-icon {
+    left: 30px;
+    transform: translateX(0);
+    width: 50px;
+    height: 50px;
   }
-}
-
-@media (max-width: 480px) {
-  .itinerary {
-    padding: 0 0.1rem;
-    gap: 1vh;
+  
+  .timeline-icon:hover {
+    transform: translateX(0) scale(1.1);
   }
-  .itinerary-card {
-    padding: 2rem 1rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    height: 100dvh;
-    max-height: 100dvh;
-    overflow-y: auto;
-    box-sizing: border-box;
-    margin: 0;
-    margin-top: 1vh;
+  
+  .timeline-icon img {
+    width: 25px;
+    height: 25px;
   }
-  .itinerary-card > * {
-    width: 100%;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
+  
+  .timeline-content,
+  .timeline-item:nth-child(odd) .timeline-content,
+  .timeline-item:nth-child(even) .timeline-content {
+    width: auto;
+    margin-left: 80px;
+    margin-right: 20px;
+    padding: 1rem;
+    text-align: left;
+  }
+  
+  .timeline-item:nth-child(odd) .timeline-content {
+    padding-right: 1rem;
+  }
+  
+  .timeline-item:nth-child(even) .timeline-content {
+    padding-left: 1rem;
   }
 }
