@@ -6,6 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Wedding Invitation</title>
   <link rel="stylesheet" href="style.css">
+  <!-- Preload critical images -->
+  <link rel="preload" as="image" href="images/bg4.jpg">
+  <link rel="preload" as="image" href="images/bg2.jpg">
+  <link rel="preload" as="image" href="images/invitation.jpg">
   <link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -101,7 +105,11 @@
       <div class="timeline">
         <div class="timeline-item">
           <div class="timeline-icon">
-            <img src="images/arrive.svg" alt="Llegada" width="30" height="30">
+            <img src="../images/arrive.svg" 
+                 srcset="images/arrive.svg 1x, images/arrive.svg 2x"
+                 alt="Llegada" 
+                 width="30" height="30"
+                 loading="lazy">
           </div>
           <div class="timeline-content">
             <h3>Llegada</h3>
@@ -111,7 +119,11 @@
 
         <div class="timeline-item">
           <div class="timeline-icon">
-            <img src="images/church.svg" alt="Ceremonia" width="30" height="30">
+            <img src="images/church.svg" 
+                 srcset="images/church.svg 1x, images/church.svg 2x"
+                 alt="Ceremonia" 
+                 width="30" height="30"
+                 loading="lazy">
           </div>
           <div class="timeline-content">
             <h3>Ceremonia</h3>
@@ -121,7 +133,11 @@
 
         <div class="timeline-item">
           <div class="timeline-icon">
-            <img src="images/cheers.svg" alt="Recepción" width="30" height="30">
+            <img src="images/cheers.svg" 
+                 srcset="images/cheers.svg 1x, images/cheers.svg 2x"
+                 alt="Recepción" 
+                 width="30" height="30"
+                 loading="lazy">
           </div>
           <div class="timeline-content">
             <h3>Recepción</h3>
@@ -131,7 +147,11 @@
 
         <div class="timeline-item">
           <div class="timeline-icon">
-            <img src="images/dancing.svg" alt="Primer Baile" width="30" height="30">
+            <img src="images/dancing.svg" 
+                 srcset="images/dancing.svg 1x, images/dancing.svg 2x"
+                 alt="Primer Baile" 
+                 width="30" height="30"
+                 loading="lazy">
           </div>
           <div class="timeline-content">
             <h3>Primer Baile</h3>
@@ -141,7 +161,11 @@
 
         <div class="timeline-item">
           <div class="timeline-icon">
-            <img src="images/dinner.svg" alt="Comida y Brindis" width="30" height="30">
+            <img src="images/dinner.svg" 
+                 srcset="images/dinner.svg 1x, images/dinner.svg 2x"
+                 alt="Comida y Brindis" 
+                 width="30" height="30"
+                 loading="lazy">
           </div>
           <div class="timeline-content">
             <h3>Comida y Brindis</h3>
@@ -151,7 +175,11 @@
 
         <div class="timeline-item">
           <div class="timeline-icon">
-            <img src="images/just-married.svg" alt="Cierre" width="30" height="30">
+            <img src="images/just-married.svg" 
+                 srcset="images/just-married.svg 1x, images/just-married.svg 2x"
+                 alt="Cierre" 
+                 width="30" height="30"
+                 loading="lazy">
           </div>
           <div class="timeline-content">
             <h3>Cierre</h3>

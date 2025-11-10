@@ -41,7 +41,6 @@ html, body {
 .itinerary {
   min-height: 100%;
   padding: 4rem 1rem;
-  background-image: url('images/bg2.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -49,6 +48,31 @@ html, body {
   align-items: center;
   justify-content: center;
   position: relative;
+  background-color: #f8f8f8; /* Fallback color */
+}
+
+/* Default background for mobile devices (up to 767px) */
+@media screen and (max-width: 767px) {
+  .itinerary {
+    background-image: url('../images/bg2.jpg');
+    background-attachment: scroll;
+  }
+}
+
+/* Medium-sized devices (768px to 1023px) */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .itinerary {
+    background-image: url('../images/bg2.jpg');
+    background-attachment: scroll; /* Changed to scroll for better compatibility */
+  }
+}
+
+/* Large devices (1024px and above) */
+@media screen and (min-width: 1024px) {
+  .itinerary {
+    background-image: url('../images/bg2.jpg');
+    background-attachment: scroll; /* Changed to scroll for better compatibility */
+  }
 }
 
 .itinerary::before {
@@ -81,7 +105,8 @@ background-attachment: fixed;
 /* HERO SECTION */
 .hero {
 position: relative;
-background-image: url('images/bg4.jpg');
+background-image: url('../images/bg4.jpg');
+background-color: #333; /* Fallback color */
 text-align: center;
 color: white;
 display: flex;
@@ -386,10 +411,11 @@ to { opacity: 1; transform: translateY(0); }
 
 .invitation {
   position: relative;
-  background-image: url('images/invitation.jpg');
+  background-image: url('../images/invitation.jpg');
+  background-color: #d4a373; /* Fallback color */
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
+  background-attachment: scroll;
   color: #fff;
   text-align: center;
   display: flex;
@@ -548,7 +574,8 @@ input[type="number"] {
 /* PALETTE / ETIQUETA */
 .palette {
   padding: 4rem 1rem;
-  background-image: url('images/etiqueta.jpg');
+  background-image: url('../images/etiqueta.jpg');
+  background-color: #f8f8f8; /* Fallback color */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -728,7 +755,8 @@ input[type="number"] {
 /* MAP */
 .map-section { 
   padding: 3rem 1rem; 
-  background-image: url('images/map.jpg');
+  background-image: url('../images/map.jpg');
+  background-color: #f8f8f8; /* Fallback color */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
