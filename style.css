@@ -76,6 +76,13 @@ section {
   }
 }
 
+@media (max-width: 768px) {
+  header + section,
+  section + section {
+    margin-top: 1.5rem;
+  }
+}
+
 /* HERO SECTION */
 .hero {
   position: relative;
@@ -88,6 +95,9 @@ section {
   color: white;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
   min-height: 100vh;
   padding: 3rem 1.5rem 2rem;
 }
@@ -99,12 +109,14 @@ section {
 }
 
 .hero-content {
-flex: 1;
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-padding: 2rem 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 0;
+  width: min(700px, 100%);
+  margin: 0 auto;
 }
 
 .hero-footer {
@@ -115,11 +127,41 @@ width: 100%;
 text-align: center;
 }
 
+.countdown {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+  color: #fff;
+}
+
+.countdown-item {
+  text-align: center;
+  min-width: 72px;
+}
+
+.countdown-number {
+  display: block;
+  font-size: 2.8rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.countdown-label {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  opacity: 0.85;
+}
+
 .hero .overlay {
 position: absolute;
 top: 0; left: 0;
 width: 100%; height: 100%;
 background: rgba(0, 0, 0, 0.45);
+-webkit-backdrop-filter: blur(3px);
+backdrop-filter: blur(3px);
 }
 
 .hero-content {
@@ -217,6 +259,16 @@ margin-bottom: 0.5rem;
   justify-content: center;
 }
 
+.rsvp::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  z-index: 0;
+}
+
 .form-card {
   position: relative;
   z-index: 1;
@@ -227,6 +279,7 @@ margin-bottom: 0.5rem;
   padding: 2rem;
   text-align: center;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  -webkit-backdrop-filter: blur(3px);
   backdrop-filter: blur(3px);
 }
 
@@ -248,16 +301,51 @@ margin-bottom: 0.5rem;
     padding: 1.5rem 1rem;
   }
 
-  .rsvp-table {
-    display: block;
-    overflow-x: auto;
-    white-space: nowrap;
-  }
-
   .rsvp-table th,
   .rsvp-table td {
     font-size: 0.9rem;
     padding: 10px 12px;
+  }
+
+}
+
+@media (max-width: 560px) {
+  .rsvp-table,
+  .rsvp-table tbody,
+  .rsvp-table tr {
+    display: block;
+    width: 100%;
+  }
+
+  .rsvp-table tr {
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #f0e6dd;
+  }
+
+  .rsvp-table th {
+    display: block;
+    background: none;
+    color: #b37e4e;
+    padding: 0;
+    margin-bottom: 0.25rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.85rem;
+  }
+
+  .rsvp-table td {
+    display: block;
+    border-top: 0;
+    padding: 0;
+    color: #4a3b2e;
+  }
+
+  .rsvp-table tr.rsvp-actions {
+    border-bottom: 0;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    background: transparent;
   }
 
   .rsvp-actions .btn {
@@ -435,8 +523,20 @@ to { opacity: 1; transform: translateY(0); }
 }
 
 @media (max-width: 768px) {
+  .hero {
+    min-height: auto;
+  }
+
   .hero-content {
     padding: 1.5rem 0.5rem;
+  }
+  
+  .countdown {
+    gap: 1rem;
+  }
+
+  .countdown-number {
+    font-size: 2.2rem;
   }
 
   .names {
@@ -455,6 +555,23 @@ to { opacity: 1; transform: translateY(0); }
 }
 
 @media (max-width: 480px) {
+  .hero {
+    padding: 2.2rem 1rem 1.25rem;
+  }
+
+  .countdown {
+    gap: 0.75rem;
+  }
+
+  .countdown-item {
+    min-width: 60px;
+  }
+
+  .countdown-label {
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+  }
+
   .names {
     font-size: 2.6rem;
   }
@@ -491,13 +608,26 @@ to { opacity: 1; transform: translateY(0); }
   padding: 4rem 1.5rem;
 }
 
+.invitation::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  z-index: 0;
+}
+
 .invitation .card {
+  position: relative;
+  z-index: 1;
   background: rgba(0, 0, 0, 0.55);
   border-radius: 20px;
   padding: 2.5rem 2rem;
   width: 100%;
   max-width: 650px;
   box-shadow: 0 6px 25px rgba(0,0,0,0.4);
+  -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
   animation: fadeIn 1.8s ease-in-out;
 }
@@ -662,6 +792,28 @@ to { opacity: 1; transform: translateY(0); }
   }
 }
 
+@media (max-width: 600px) {
+  .ceremony-title,
+  .palette-card h2,
+  .itinerary-card h2,
+  .map-card h2 {
+    font-size: 2rem;
+  }
+
+  .date-block .day-number {
+    font-size: 2.5rem;
+  }
+
+  .dress-code .formal,
+  .colors-list {
+    font-size: 1rem;
+  }
+
+  .itinerary-card {
+    padding: 1.5rem;
+  }
+}
+
 /* RSVP form tweaks */
 .radio-row {
   display: flex;
@@ -696,6 +848,8 @@ input[type="number"] {
   position: absolute;
   inset: 0;
   background: linear-gradient(rgba(255,255,255,0.15), rgba(0,0,0,0.1));
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
   pointer-events: none;
 }
 
@@ -708,6 +862,7 @@ input[type="number"] {
   padding: 2.5rem;
   border-radius: 14px;
   background: rgba(255,255,255,0.92);
+  -webkit-backdrop-filter: blur(3px);
   backdrop-filter: blur(3px);
   box-shadow: 0 6px 24px rgba(0,0,0,0.08);
 }
@@ -884,7 +1039,15 @@ input[type="number"] {
   position: relative;
   display:flex; align-items:center; justify-content:center;
 }
-.itinerary-card { background: rgba(255,255,255,0.85); padding:2rem; border-radius:14px; max-width:800px; box-shadow:0 6px 18px rgba(0,0,0,0.06); backdrop-filter: blur(2px); }
+.itinerary-card {
+  background: rgba(255,255,255,0.85);
+  padding: 2rem;
+  border-radius: 14px;
+  max-width: 800px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+}
 
 /* overlay for better contrast over background image */
 .itinerary::before {
@@ -892,6 +1055,8 @@ input[type="number"] {
   position: absolute;
   inset: 0;
   background: linear-gradient(rgba(255,255,255,0.05), rgba(0,0,0,0.12));
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
   pointer-events: none;
 }
 .itinerary-card h2 { 
@@ -1014,6 +1179,8 @@ input[type="number"] {
   position: absolute;
   inset: 0;
   background: linear-gradient(rgba(255,255,255,0.1), rgba(0,0,0,0.2));
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
   pointer-events: none;
 }
 
@@ -1026,6 +1193,7 @@ input[type="number"] {
   background: rgba(255,255,255,0.9);
   padding: 2rem;
   border-radius: 14px;
+  -webkit-backdrop-filter: blur(2px);
   backdrop-filter: blur(2px);
 }
 .map-card h2 { color:#b37e4e; font-family:'Allura', cursive; }
@@ -1100,4 +1268,129 @@ input[type="number"] {
   .colors { gap:0.6rem; }
   .color { width:90px; height:60px; }
   .itinerary-card { padding:1rem; }
+}
+
+@media (max-width: 768px) {
+  .hero .overlay,
+  .invitation::before,
+  .rsvp::before,
+  .palette::before,
+  .itinerary::before,
+  .map-section::before {
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+  }
+
+  .invitation .card,
+  .form-card,
+  .palette-card,
+  .itinerary-card,
+  .map-card {
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+    background: rgba(255, 255, 255, 0.97);
+  }
+
+  .hero .overlay {
+    background: rgba(0, 0, 0, 0.55);
+  }
+
+  .invitation::before,
+  .rsvp::before,
+  .itinerary::before {
+    background: rgba(0, 0, 0, 0.4);
+  }
+
+  .palette::before,
+  .map-section::before {
+    background: rgba(255, 255, 255, 0.7);
+  }
+
+  .invitation,
+  .palette,
+  .itinerary,
+  .rsvp {
+    display: block;
+    padding: 0;
+    margin: 0 auto 1.5rem;
+    background: none;
+    min-height: auto;
+  }
+
+  .invitation::before,
+  .palette::before,
+  .itinerary::before,
+  .rsvp::before {
+    position: relative;
+    inset: auto;
+    display: block;
+    content: '';
+    width: 100%;
+    height: clamp(220px, 45vh, 320px);
+    min-height: 220px;
+    pointer-events: none;
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+    opacity: 1;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .invitation::before { background-image: url('images/invitation.jpg'); }
+  .palette::before { background-image: url('images/etiqueta.jpg'); }
+  .itinerary::before { background-image: url('images/itinerary.jpg'); }
+  .rsvp::before { background-image: url('images/bg5.jpg'); }
+
+  .invitation .card,
+  .palette-card,
+  .itinerary-card,
+  .form-card {
+    max-width: none;
+    width: 100%;
+    border-radius: 0;
+    box-shadow: none;
+    padding: clamp(1.75rem, 6vw, 3rem) 1.25rem clamp(2rem, 7vw, 3.5rem);
+  }
+
+  .invitation .card {
+    background: #fff;
+    color: #4e3723;
+    text-align: center;
+  }
+
+  .invitation h2,
+  .ceremony-title {
+    color: #b37e4e;
+  }
+
+  .invitation .date-block .day-number,
+  .invitation .date-block .year {
+    color: #5a3b23;
+  }
+
+  .invitation .intro,
+  .invitation .venue-info .venue-name,
+  .invitation .venue-info .time {
+    color: #4e3723;
+  }
+
+  .invitation .verse {
+    background: rgba(212, 163, 115, 0.12);
+    border-left-color: #d4a373;
+    color: #5a3b23;
+  }
+
+  .palette-card,
+  .itinerary-card,
+  .form-card {
+    background: #fff;
+  }
+
+  .palette-card .divider {
+    margin: 1.5rem auto;
+  }
+
+  .rsvp .form-card {
+    padding-bottom: clamp(2rem, 10vw, 4rem);
+  }
 }

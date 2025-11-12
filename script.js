@@ -13,6 +13,52 @@
   });
 })();
 
+const WEDDING_DATE = new Date('2026-02-20T11:00:00-05:00').getTime();
+
+function startCountdown() {
+  const daysEl = document.getElementById('countdown-days');
+  const hoursEl = document.getElementById('countdown-hours');
+  const minutesEl = document.getElementById('countdown-minutes');
+  const secondsEl = document.getElementById('countdown-seconds');
+
+  if (!daysEl || !hoursEl || !minutesEl || !secondsEl) return;
+
+  const pad = (value) => String(value).padStart(2, '0');
+
+  let timerId = null;
+
+  const updateCountdown = () => {
+    const now = Date.now();
+    let distance = WEDDING_DATE - now;
+
+    if (distance <= 0) {
+      daysEl.textContent = '00';
+      hoursEl.textContent = '00';
+      minutesEl.textContent = '00';
+      secondsEl.textContent = '00';
+      if (timerId) clearInterval(timerId);
+      return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    distance %= (1000 * 60 * 60 * 24);
+    const hours = Math.floor(distance / (1000 * 60 * 60));
+    distance %= (1000 * 60 * 60);
+    const minutes = Math.floor(distance / (1000 * 60));
+    distance %= (1000 * 60);
+    const seconds = Math.floor(distance / 1000);
+
+    daysEl.textContent = pad(days);
+    hoursEl.textContent = pad(hours);
+    minutesEl.textContent = pad(minutes);
+    secondsEl.textContent = pad(seconds);
+  };
+
+  updateCountdown();
+  timerId = setInterval(updateCountdown, 1000);
+  return timerId;
+}
+
 // Map initialization and routing
 const VENUE_LOCATION = {
   lat: 4.8484, // Replace with actual Casa Duque coordinates
@@ -118,6 +164,7 @@ window.addEventListener('load', initMap);
 const scriptURL = "https://script.google.com/macros/s/AKfycbxH7gY34mzirP5k4j4bW8fsOexB-cTlMO-7NkyfB9ZdP_1DEHuF3rqvBBZ1woFfIyVSuw/exec"; // replace with your Google Apps Script URL
 
 document.addEventListener("DOMContentLoaded", async () => {
+    startCountdown();
     const params = new URLSearchParams(window.location.search);
     const uuid = params.get("uuid");
     const guestNameEl = document.getElementById("guestName");
