@@ -166,7 +166,7 @@ const scriptURL = "https://script.google.com/macros/s/AKfycbxH7gY34mzirP5k4j4bW8
 document.addEventListener("DOMContentLoaded", async () => {
     startCountdown();
     const params = new URLSearchParams(window.location.search);
-    const uuid = params.get("uuid");
+    const uuid = params.get("UUID");
     const guestNameEl = document.getElementById("guestName");
     const guestInput = document.getElementById("guest");
     const seatsInput = document.getElementById("seats");
@@ -180,10 +180,10 @@ document.addEventListener("DOMContentLoaded", async () => {
                 // Update invitation heading and description
                 const description = document.querySelector('.hero-content .description');
                 if (description) {
-                    description.textContent = data.NAME;
+                    description.textContent = data.Nombres;
                 }
                 if (guestNameEl) {
-                    guestNameEl.textContent = `Hola, ${data.NAME}`;
+                    guestNameEl.textContent = `Hola, ${data.Nombres}`;
                 }
 
                 // Update RSVP table cells
@@ -191,7 +191,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 const seatsCell = document.getElementById('seatsCell');
                 const attendCell = document.getElementById('attendCell');
 
-                if (guestNameCell) guestNameCell.textContent = data.NAME;
+                if (guestNameCell) guestNameCell.textContent = data.Nombres;
                 if (seatsCell) seatsCell.textContent = data.TOTAL_SEATS || '1';
                 if (attendCell) attendCell.textContent = data.CONFIRMED ? 'Sí' : 'No';
 
@@ -228,13 +228,13 @@ document.addEventListener("DOMContentLoaded", async () => {
                 }
 
                 // Update form fields if they exist
-                if (guestInput) guestInput.value = data.NAME;
+                if (guestInput) guestInput.value = data.Nombres;
                 if (seatsInput) seatsInput.value = data.TOTAL_SEATS || 1;
 
                 // Store in localStorage for persistence
                 try {
                     localStorage.setItem('rsvp-data', JSON.stringify({
-                        guest: data.NAME,
+                        guest: data.Nombres,
                         seats: data.TOTAL_SEATS || 1,
                         attend: data.CONFIRMED ? 'yes' : 'no',
                         time: Date.now()
