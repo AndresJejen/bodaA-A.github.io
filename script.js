@@ -166,7 +166,7 @@ const scriptURL = "https://script.google.com/macros/s/AKfycbxH7gY34mzirP5k4j4bW8
 document.addEventListener("DOMContentLoaded", async () => {
     startCountdown();
     const params = new URLSearchParams(window.location.search);
-    const uuid = params.get("UUID");
+    const uuid = params.get("uuid");
     const guestNameEl = document.getElementById("guestName");
     const guestInput = document.getElementById("guest");
     const seatsInput = document.getElementById("seats");
